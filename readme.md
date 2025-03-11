@@ -8,7 +8,7 @@ This repository contains three scripts used to **recreate the analysis** in **Ca
 
 Before running any of the scripts, install or load the required packages using the following command in R:
 
-``` R
+``` r
 source("R/packages/install_packages.R")
 ```
 
@@ -18,12 +18,12 @@ Run the scripts in the following order:
 
 1.  **`1_visualise_data.R`** → Maps pathogen incidence locations, incidence rates, and temperature data.\
 2.  **`2_fit_gams.R`** → Fits **Generalized Additive Models** (GAMs) to analyse the relationship between temperature and pathogen incidence. Compares model performance.\
-3.  **`3_fit_gmrf.R`** → Fits a **Gaussian Markov Random Field (GMRF)** using **INLA** to model pathogen incidence and temperature associations.
+3.  **`3_fit_gmrf.R`** → Fits a **Gaussian Markov Random Field (GMRF)** using **INLA** to model pathogen incidence.
 
 ## 📂 File Structure
 
 | **File / Script**        | **Purpose**                                                                                                                                                             |
-|----------------|--------------------------------------------------------|
+|------------------|------------------------------------------------------|
 | **`1_visualise_data.R`** | Maps pathogen incidence locations, incidence rates, and temperatures.                                                                                                   |
 | **`2_fit_gams.R`**       | Fits Generalized Additive Models (GAMs) to analyse the relationship between temperature and pathogen incidence. Compares model performance.                             |
 | **`3_fit_gmrf.R`**       | Fits a **Gaussian Markov Random Field (GMRF)** using **INLA**, modeling pathogen incidence and temperature associations.                                                |
