@@ -1,0 +1,988 @@
+
+========================================
+Fitting model: M1 with link: cloglog 
+========================================
+
+Model Summary:
+
+Family: binomial 
+Link function: cloglog 
+
+Formula:
+cbind(cases, population - cases) ~ s(temperature)
+
+Parametric coefficients:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept) -2.29812    0.01902  -120.8   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Approximate significance of smooth terms:
+                 edf Ref.df Chi.sq p-value    
+s(temperature) 5.108  6.191  23.78 0.00066 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+R-sq.(adj) =  0.0341   Deviance explained = 6.27%
+UBRE = 1.6203  Scale est. = 1         n = 156
+
+Diagnostic Check:
+
+Method: UBRE   Optimizer: outer newton
+full convergence after 5 iterations.
+Gradient range [4.043686e-09,4.043686e-09]
+(score 1.620348 & scale 1).
+Hessian positive definite, eigenvalue range [0.007316528,0.007316528].
+Model rank =  10 / 10 
+
+Basis dimension (k) checking results. Low p-value (k-index<1) may
+indicate that k is too low, especially if edf is close to k'.
+
+                 k'  edf k-index p-value
+s(temperature) 9.00 5.11    1.03    0.68
+
+========================================
+Fitting model: M2 with link: cloglog 
+========================================
+
+Model Summary:
+
+Family: binomial 
+Link function: cloglog 
+
+Formula:
+cbind(cases, population - cases) ~ s(temperature) + s(quarter, 
+    bs = "cc", k = 4) + te(temperature, quarter, bs = c("tp", 
+    "cc"), k = c(5, 4))
+
+Parametric coefficients:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  -2.3083     0.0192  -120.2   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Approximate significance of smooth terms:
+                          edf Ref.df Chi.sq p-value    
+s(temperature)          1.417  1.605  0.631 0.53131    
+s(quarter)              1.903  2.000 32.106 < 2e-16 ***
+te(temperature,quarter) 3.102  8.000  9.379 0.00436 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+R-sq.(adj) =  0.186   Deviance explained = 21.5%
+UBRE = 1.2242  Scale est. = 1         n = 156
+
+Diagnostic Check:
+
+Method: UBRE   Optimizer: outer newton
+full convergence after 10 iterations.
+Gradient range [-1.085442e-08,8.201669e-07]
+(score 1.224191 & scale 1).
+Hessian positive definite, eigenvalue range [8.201987e-07,0.01106226].
+Model rank =  20 / 20 
+
+Basis dimension (k) checking results. Low p-value (k-index<1) may
+indicate that k is too low, especially if edf is close to k'.
+
+                          k'  edf k-index p-value   
+s(temperature)          9.00 1.42    1.00    0.45   
+s(quarter)              2.00 1.90    0.82    0.01 **
+te(temperature,quarter) 8.00 3.10    1.04    0.79   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+========================================
+Fitting model: M3 with link: cloglog 
+========================================
+
+Model Summary:
+
+Family: binomial 
+Link function: cloglog 
+
+Formula:
+cbind(cases, population - cases) ~ s(temperature) + s(time, k = 5) + 
+    te(temperature, time)
+
+Parametric coefficients:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept) -2.30143    0.01908  -120.6   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Approximate significance of smooth terms:
+                       edf Ref.df Chi.sq  p-value    
+s(temperature)       1.000  1.000  0.302   0.5826    
+s(time)              1.000  1.000  4.814   0.0282 *  
+te(temperature,time) 6.615  6.956 32.040 7.75e-05 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+R-sq.(adj) =  0.0516   Deviance explained = 10.1%
+UBRE = 1.5628  Scale est. = 1         n = 156
+
+Diagnostic Check:
+
+Method: UBRE   Optimizer: outer newton
+full convergence after 9 iterations.
+Gradient range [-7.928091e-07,-7.156236e-08]
+(score 1.562825 & scale 1).
+Hessian positive definite, eigenvalue range [7.156163e-08,0.003524954].
+Model rank =  36 / 36 
+
+Basis dimension (k) checking results. Low p-value (k-index<1) may
+indicate that k is too low, especially if edf is close to k'.
+
+                        k'   edf k-index p-value   
+s(temperature)        9.00  1.00    1.07   0.835   
+s(time)               4.00  1.00    0.69   0.005 **
+te(temperature,time) 22.00  6.62    1.06   0.840   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+========================================
+Fitting model: M4 with link: cloglog 
+========================================
+
+Model Summary:
+
+Family: binomial 
+Link function: cloglog 
+
+Formula:
+cbind(cases, population - cases) ~ s(temperature) + s(time) + 
+    s(quarter, bs = "cc", k = 4) + te(temperature, time) + te(temperature, 
+    quarter, bs = c("tp", "cc"), k = c(5, 4))
+
+Parametric coefficients:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept) -2.31442    0.01936  -119.5   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Approximate significance of smooth terms:
+                           edf Ref.df Chi.sq p-value    
+s(temperature)          1.0003  1.000  3.123 0.07730 .  
+s(time)                 8.1074  8.776 22.301 0.00460 ** 
+s(quarter)              1.9965  2.000 52.930 < 2e-16 ***
+te(temperature,time)    6.4608  6.867 22.332 0.00253 ** 
+te(temperature,quarter) 0.6412  8.000  0.892 0.19346    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+R-sq.(adj) =  0.233   Deviance explained = 31.4%
+UBRE = 1.1063  Scale est. = 1         n = 156
+
+Diagnostic Check:
+
+Method: UBRE   Optimizer: outer newton
+full convergence after 10 iterations.
+Gradient range [-1.139507e-06,8.251118e-07]
+(score 1.106314 & scale 1).
+Hessian positive definite, eigenvalue range [7.604383e-08,0.004135041].
+Model rank =  51 / 51 
+
+Basis dimension (k) checking results. Low p-value (k-index<1) may
+indicate that k is too low, especially if edf is close to k'.
+
+                            k'    edf k-index p-value   
+s(temperature)           9.000  1.000    1.05    0.68   
+s(time)                  9.000  8.107    0.83    0.02 * 
+s(quarter)               2.000  1.996    0.83    0.01 **
+te(temperature,time)    22.000  6.461    1.17    0.99   
+te(temperature,quarter)  8.000  0.641    1.04    0.71   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+========================================
+Fitting model: M5 with link: cloglog 
+========================================
+
+Model Summary:
+
+Family: binomial 
+Link function: cloglog 
+
+Formula:
+cbind(cases, population - cases) ~ s(temperature) + s(quarter, 
+    bs = "cc", k = 4) + te(temperature, time)
+
+Parametric coefficients:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept) -2.31187    0.01927    -120   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Approximate significance of smooth terms:
+                       edf Ref.df Chi.sq  p-value    
+s(temperature)       1.000  1.000  0.015 0.901461    
+s(quarter)           1.943  2.000 65.294  < 2e-16 ***
+te(temperature,time) 7.588  7.949 29.032 0.000706 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+R-sq.(adj) =  0.205   Deviance explained = 25.4%
+UBRE =  1.171  Scale est. = 1         n = 156
+
+Diagnostic Check:
+
+Method: UBRE   Optimizer: outer newton
+full convergence after 9 iterations.
+Gradient range [-7.100112e-07,3.197998e-09]
+(score 1.170977 & scale 1).
+Hessian positive definite, eigenvalue range [4.03256e-07,0.003651114].
+Model rank =  35 / 35 
+
+Basis dimension (k) checking results. Low p-value (k-index<1) may
+indicate that k is too low, especially if edf is close to k'.
+
+                        k'   edf k-index p-value   
+s(temperature)        9.00  1.00    1.05   0.680   
+s(quarter)            2.00  1.94    0.81   0.005 **
+te(temperature,time) 23.00  7.59    1.07   0.920   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+========================================
+Fitting model: M1 with link: cloglog 
+========================================
+
+Model Summary:
+
+Family: binomial 
+Link function: cloglog 
+
+Formula:
+cbind(cases, population - cases) ~ s(temperature)
+
+Parametric coefficients:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept) -2.29812    0.01902  -120.8   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Approximate significance of smooth terms:
+                 edf Ref.df Chi.sq p-value    
+s(temperature) 5.108  6.191  23.78 0.00066 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+R-sq.(adj) =  0.0341   Deviance explained = 6.27%
+UBRE = 1.6203  Scale est. = 1         n = 156
+
+Diagnostic Check:
+
+Method: UBRE   Optimizer: outer newton
+full convergence after 5 iterations.
+Gradient range [4.043686e-09,4.043686e-09]
+(score 1.620348 & scale 1).
+Hessian positive definite, eigenvalue range [0.007316528,0.007316528].
+Model rank =  10 / 10 
+
+Basis dimension (k) checking results. Low p-value (k-index<1) may
+indicate that k is too low, especially if edf is close to k'.
+
+                 k'  edf k-index p-value
+s(temperature) 9.00 5.11    1.03    0.68
+
+========================================
+Fitting model: M2 with link: cloglog 
+========================================
+
+Model Summary:
+
+Family: binomial 
+Link function: cloglog 
+
+Formula:
+cbind(cases, population - cases) ~ s(temperature) + s(quarter, 
+    bs = "cc", k = 4) + te(temperature, quarter, bs = c("tp", 
+    "cc"), k = c(5, 4))
+
+Parametric coefficients:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  -2.3083     0.0192  -120.2   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Approximate significance of smooth terms:
+                          edf Ref.df Chi.sq p-value    
+s(temperature)          1.417  1.605  0.631 0.53131    
+s(quarter)              1.903  2.000 32.106 < 2e-16 ***
+te(temperature,quarter) 3.102  8.000  9.379 0.00436 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+R-sq.(adj) =  0.186   Deviance explained = 21.5%
+UBRE = 1.2242  Scale est. = 1         n = 156
+
+Diagnostic Check:
+
+Method: UBRE   Optimizer: outer newton
+full convergence after 10 iterations.
+Gradient range [-1.085442e-08,8.201669e-07]
+(score 1.224191 & scale 1).
+Hessian positive definite, eigenvalue range [8.201987e-07,0.01106226].
+Model rank =  20 / 20 
+
+Basis dimension (k) checking results. Low p-value (k-index<1) may
+indicate that k is too low, especially if edf is close to k'.
+
+                          k'  edf k-index p-value   
+s(temperature)          9.00 1.42    1.00   0.535   
+s(quarter)              2.00 1.90    0.82   0.005 **
+te(temperature,quarter) 8.00 3.10    1.04   0.705   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+========================================
+Fitting model: M3 with link: cloglog 
+========================================
+
+Model Summary:
+
+Family: binomial 
+Link function: cloglog 
+
+Formula:
+cbind(cases, population - cases) ~ s(temperature) + s(time, k = 5) + 
+    te(temperature, time)
+
+Parametric coefficients:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept) -2.30143    0.01908  -120.6   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Approximate significance of smooth terms:
+                       edf Ref.df Chi.sq  p-value    
+s(temperature)       1.000  1.000  0.302   0.5826    
+s(time)              1.000  1.000  4.814   0.0282 *  
+te(temperature,time) 6.615  6.956 32.040 7.75e-05 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+R-sq.(adj) =  0.0516   Deviance explained = 10.1%
+UBRE = 1.5628  Scale est. = 1         n = 156
+
+Diagnostic Check:
+
+Method: UBRE   Optimizer: outer newton
+full convergence after 9 iterations.
+Gradient range [-7.928091e-07,-7.156236e-08]
+(score 1.562825 & scale 1).
+Hessian positive definite, eigenvalue range [7.156163e-08,0.003524954].
+Model rank =  36 / 36 
+
+Basis dimension (k) checking results. Low p-value (k-index<1) may
+indicate that k is too low, especially if edf is close to k'.
+
+                        k'   edf k-index p-value    
+s(temperature)        9.00  1.00    1.07    0.83    
+s(time)               4.00  1.00    0.69  <2e-16 ***
+te(temperature,time) 22.00  6.62    1.06    0.77    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+========================================
+Fitting model: M4 with link: cloglog 
+========================================
+
+Model Summary:
+
+Family: binomial 
+Link function: cloglog 
+
+Formula:
+cbind(cases, population - cases) ~ s(temperature) + s(time) + 
+    s(quarter, bs = "cc", k = 4) + te(temperature, time) + te(temperature, 
+    quarter, bs = c("tp", "cc"), k = c(5, 4))
+
+Parametric coefficients:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept) -2.31442    0.01936  -119.5   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Approximate significance of smooth terms:
+                           edf Ref.df Chi.sq p-value    
+s(temperature)          1.0003  1.000  3.123 0.07730 .  
+s(time)                 8.1074  8.776 22.301 0.00460 ** 
+s(quarter)              1.9965  2.000 52.930 < 2e-16 ***
+te(temperature,time)    6.4608  6.867 22.332 0.00253 ** 
+te(temperature,quarter) 0.6412  8.000  0.892 0.19346    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+R-sq.(adj) =  0.233   Deviance explained = 31.4%
+UBRE = 1.1063  Scale est. = 1         n = 156
+
+Diagnostic Check:
+
+Method: UBRE   Optimizer: outer newton
+full convergence after 10 iterations.
+Gradient range [-1.139507e-06,8.251118e-07]
+(score 1.106314 & scale 1).
+Hessian positive definite, eigenvalue range [7.604383e-08,0.004135041].
+Model rank =  51 / 51 
+
+Basis dimension (k) checking results. Low p-value (k-index<1) may
+indicate that k is too low, especially if edf is close to k'.
+
+                            k'    edf k-index p-value  
+s(temperature)           9.000  1.000    1.05   0.710  
+s(time)                  9.000  8.107    0.83   0.020 *
+s(quarter)               2.000  1.996    0.83   0.015 *
+te(temperature,time)    22.000  6.461    1.17   1.000  
+te(temperature,quarter)  8.000  0.641    1.04   0.715  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+========================================
+Fitting model: M5 with link: cloglog 
+========================================
+
+Model Summary:
+
+Family: binomial 
+Link function: cloglog 
+
+Formula:
+cbind(cases, population - cases) ~ s(temperature) + s(quarter, 
+    bs = "cc", k = 4) + te(temperature, time)
+
+Parametric coefficients:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept) -2.31187    0.01927    -120   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Approximate significance of smooth terms:
+                       edf Ref.df Chi.sq  p-value    
+s(temperature)       1.000  1.000  0.015 0.901461    
+s(quarter)           1.943  2.000 65.294  < 2e-16 ***
+te(temperature,time) 7.588  7.949 29.032 0.000706 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+R-sq.(adj) =  0.205   Deviance explained = 25.4%
+UBRE =  1.171  Scale est. = 1         n = 156
+
+Diagnostic Check:
+
+Method: UBRE   Optimizer: outer newton
+full convergence after 9 iterations.
+Gradient range [-7.100112e-07,3.197998e-09]
+(score 1.170977 & scale 1).
+Hessian positive definite, eigenvalue range [4.03256e-07,0.003651114].
+Model rank =  35 / 35 
+
+Basis dimension (k) checking results. Low p-value (k-index<1) may
+indicate that k is too low, especially if edf is close to k'.
+
+                        k'   edf k-index p-value    
+s(temperature)        9.00  1.00    1.05    0.68    
+s(quarter)            2.00  1.94    0.81  <2e-16 ***
+te(temperature,time) 23.00  7.59    1.07    0.88    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+========================================
+Fitting model: M1 with link: cloglog 
+========================================
+
+Model Summary:
+
+Family: binomial 
+Link function: cloglog 
+
+Formula:
+cbind(cases, population - cases) ~ s(temperature)
+
+Parametric coefficients:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept) -2.29812    0.01902  -120.8   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Approximate significance of smooth terms:
+                 edf Ref.df Chi.sq p-value    
+s(temperature) 5.108  6.191  23.78 0.00066 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+R-sq.(adj) =  0.0341   Deviance explained = 6.27%
+UBRE = 1.6203  Scale est. = 1         n = 156
+
+Diagnostic Check:
+
+Method: UBRE   Optimizer: outer newton
+full convergence after 5 iterations.
+Gradient range [4.043686e-09,4.043686e-09]
+(score 1.620348 & scale 1).
+Hessian positive definite, eigenvalue range [0.007316528,0.007316528].
+Model rank =  10 / 10 
+
+Basis dimension (k) checking results. Low p-value (k-index<1) may
+indicate that k is too low, especially if edf is close to k'.
+
+                 k'  edf k-index p-value
+s(temperature) 9.00 5.11    1.03    0.61
+
+========================================
+Fitting model: M2 with link: cloglog 
+========================================
+
+Model Summary:
+
+Family: binomial 
+Link function: cloglog 
+
+Formula:
+cbind(cases, population - cases) ~ s(temperature) + factor(quarter) + 
+    ti(temperature, by = factor(quarter))
+
+Parametric coefficients:
+                 Estimate Std. Error z value Pr(>|z|)    
+(Intercept)      -2.56055    0.04973 -51.490  < 2e-16 ***
+factor(quarter)2  0.58824    0.07633   7.706  1.3e-14 ***
+factor(quarter)3  0.17336    0.06459   2.684 0.007271 ** 
+factor(quarter)4  0.20788    0.06255   3.324 0.000889 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Approximate significance of smooth terms:
+                                   edf Ref.df Chi.sq p-value  
+s(temperature)                   4.104  5.111 12.209  0.0341 *
+ti(temperature):factor(quarter)1 1.000  1.000  0.186  0.6660  
+ti(temperature):factor(quarter)2 1.763  2.141  6.248  0.0530 .
+ti(temperature):factor(quarter)3 1.000  1.000  0.114  0.7354  
+ti(temperature):factor(quarter)4 1.000  1.000  0.083  0.7738  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Rank: 28/29
+R-sq.(adj) =  0.202   Deviance explained = 25.9%
+UBRE = 1.1758  Scale est. = 1         n = 156
+
+Diagnostic Check:
+
+Method: UBRE   Optimizer: outer newton
+full convergence after 10 iterations.
+Gradient range [-4.850167e-07,-1.162948e-07]
+(score 1.175825 & scale 1).
+Hessian positive definite, eigenvalue range [1.162915e-07,0.0126382].
+Model rank =  28 / 29 
+
+Basis dimension (k) checking results. Low p-value (k-index<1) may
+indicate that k is too low, especially if edf is close to k'.
+
+                                   k'  edf k-index p-value
+s(temperature)                   9.00 4.10    0.99    0.41
+ti(temperature):factor(quarter)1 4.00 1.00    0.99    0.47
+ti(temperature):factor(quarter)2 4.00 1.76    0.99    0.38
+ti(temperature):factor(quarter)3 4.00 1.00    0.99    0.43
+ti(temperature):factor(quarter)4 4.00 1.00    0.99    0.42
+
+========================================
+Fitting model: M3 with link: cloglog 
+========================================
+
+Model Summary:
+
+Family: binomial 
+Link function: cloglog 
+
+Formula:
+cbind(cases, population - cases) ~ s(temperature) + s(time, k = 5) + 
+    te(temperature, time)
+
+Parametric coefficients:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept) -2.30143    0.01908  -120.6   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Approximate significance of smooth terms:
+                       edf Ref.df Chi.sq  p-value    
+s(temperature)       1.000  1.000  0.302   0.5826    
+s(time)              1.000  1.000  4.814   0.0282 *  
+te(temperature,time) 6.615  6.956 32.040 7.75e-05 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+R-sq.(adj) =  0.0516   Deviance explained = 10.1%
+UBRE = 1.5628  Scale est. = 1         n = 156
+
+Diagnostic Check:
+
+Method: UBRE   Optimizer: outer newton
+full convergence after 9 iterations.
+Gradient range [-7.928091e-07,-7.156236e-08]
+(score 1.562825 & scale 1).
+Hessian positive definite, eigenvalue range [7.156163e-08,0.003524954].
+Model rank =  36 / 36 
+
+Basis dimension (k) checking results. Low p-value (k-index<1) may
+indicate that k is too low, especially if edf is close to k'.
+
+                        k'   edf k-index p-value    
+s(temperature)        9.00  1.00    1.07    0.78    
+s(time)               4.00  1.00    0.69  <2e-16 ***
+te(temperature,time) 22.00  6.62    1.06    0.81    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+========================================
+Fitting model: M4 with link: cloglog 
+========================================
+
+Model Summary:
+
+Family: binomial 
+Link function: cloglog 
+
+Formula:
+cbind(cases, population - cases) ~ s(temperature) + s(time) + 
+    factor(quarter) + te(temperature, time) + ti(temperature, 
+    by = factor(quarter))
+
+Parametric coefficients:
+                 Estimate Std. Error z value Pr(>|z|)    
+(Intercept)      -2.52562    0.05375 -46.993  < 2e-16 ***
+factor(quarter)2  0.53107    0.07692   6.904 5.06e-12 ***
+factor(quarter)3  0.13773    0.07013   1.964   0.0495 *  
+factor(quarter)4  0.14216    0.07837   1.814   0.0697 .  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Approximate significance of smooth terms:
+                                    edf Ref.df Chi.sq  p-value    
+s(temperature)                   1.0000  1.000  5.189 0.022738 *  
+s(time)                          6.7531  7.820 14.873 0.054072 .  
+te(temperature,time)             6.7858  6.933 25.566 0.000448 ***
+ti(temperature):factor(quarter)1 1.0002  1.000  0.075 0.783701    
+ti(temperature):factor(quarter)2 0.7666  1.136  0.931 0.296752    
+ti(temperature):factor(quarter)3 1.0000  1.000  0.137 0.711755    
+ti(temperature):factor(quarter)4 3.6361  3.891  7.532 0.183508    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Rank: 59/60
+R-sq.(adj) =  0.237   Deviance explained = 34.8%
+UBRE = 1.0892  Scale est. = 1         n = 156
+
+Diagnostic Check:
+
+Method: UBRE   Optimizer: outer newton
+full convergence after 13 iterations.
+Gradient range [-7.231874e-07,2.742087e-07]
+(score 1.089185 & scale 1).
+Hessian positive definite, eigenvalue range [8.819441e-09,0.007493072].
+Model rank =  59 / 60 
+
+Basis dimension (k) checking results. Low p-value (k-index<1) may
+indicate that k is too low, especially if edf is close to k'.
+
+                                     k'    edf k-index p-value  
+s(temperature)                    9.000  1.000    1.02   0.560  
+s(time)                           9.000  6.753    0.85   0.025 *
+te(temperature,time)             22.000  6.786    1.13   0.980  
+ti(temperature):factor(quarter)1  4.000  1.000    1.02   0.575  
+ti(temperature):factor(quarter)2  4.000  0.767    1.02   0.605  
+ti(temperature):factor(quarter)3  4.000  1.000    1.02   0.530  
+ti(temperature):factor(quarter)4  4.000  3.636    1.02   0.565  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+========================================
+Fitting model: M5 with link: cloglog 
+========================================
+
+Model Summary:
+
+Family: binomial 
+Link function: cloglog 
+
+Formula:
+cbind(cases, population - cases) ~ s(temperature) + factor(quarter) + 
+    te(temperature, time)
+
+Parametric coefficients:
+                 Estimate Std. Error z value Pr(>|z|)    
+(Intercept)      -2.52597    0.04469 -56.524  < 2e-16 ***
+factor(quarter)2  0.50317    0.06128   8.212  < 2e-16 ***
+factor(quarter)3  0.16761    0.06013   2.788  0.00531 ** 
+factor(quarter)4  0.17597    0.05955   2.955  0.00313 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Approximate significance of smooth terms:
+                       edf Ref.df Chi.sq  p-value    
+s(temperature)       1.000  1.000  0.066 0.797337    
+te(temperature,time) 7.622  7.958 28.475 0.000798 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+R-sq.(adj) =  0.219   Deviance explained = 27.5%
+UBRE = 1.1269  Scale est. = 1         n = 156
+
+Diagnostic Check:
+
+Method: UBRE   Optimizer: outer newton
+full convergence after 10 iterations.
+Gradient range [-6.089291e-07,-5.479075e-08]
+(score 1.126915 & scale 1).
+Hessian positive definite, eigenvalue range [3.56029e-07,0.003450456].
+Model rank =  36 / 36 
+
+Basis dimension (k) checking results. Low p-value (k-index<1) may
+indicate that k is too low, especially if edf is close to k'.
+
+                        k'   edf k-index p-value
+s(temperature)        9.00  1.00    1.04    0.63
+te(temperature,time) 23.00  7.62    1.11    0.94
+
+========================================
+Fitting model: M1 with link: cloglog 
+========================================
+
+Model Summary:
+
+Family: binomial 
+Link function: cloglog 
+
+Formula:
+cbind(cases, population - cases) ~ s(temperature)
+
+Parametric coefficients:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept) -2.29812    0.01902  -120.8   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Approximate significance of smooth terms:
+                 edf Ref.df Chi.sq p-value    
+s(temperature) 5.108  6.191  23.78 0.00066 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+R-sq.(adj) =  0.0341   Deviance explained = 6.27%
+UBRE = 1.6203  Scale est. = 1         n = 156
+
+Diagnostic Check:
+
+Method: UBRE   Optimizer: outer newton
+full convergence after 5 iterations.
+Gradient range [4.043686e-09,4.043686e-09]
+(score 1.620348 & scale 1).
+Hessian positive definite, eigenvalue range [0.007316528,0.007316528].
+Model rank =  10 / 10 
+
+Basis dimension (k) checking results. Low p-value (k-index<1) may
+indicate that k is too low, especially if edf is close to k'.
+
+                 k'  edf k-index p-value
+s(temperature) 9.00 5.11    1.03    0.67
+
+========================================
+Fitting model: M2 with link: cloglog 
+========================================
+
+Model Summary:
+
+Family: binomial 
+Link function: cloglog 
+
+Formula:
+cbind(cases, population - cases) ~ s(temperature) + s(quarter, 
+    bs = "cc", k = 4) + te(temperature, quarter, bs = c("tp", 
+    "cc"), k = c(5, 4))
+
+Parametric coefficients:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  -2.3083     0.0192  -120.2   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Approximate significance of smooth terms:
+                          edf Ref.df Chi.sq p-value    
+s(temperature)          1.417  1.605  0.631 0.53131    
+s(quarter)              1.903  2.000 32.106 < 2e-16 ***
+te(temperature,quarter) 3.102  8.000  9.379 0.00436 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+R-sq.(adj) =  0.186   Deviance explained = 21.5%
+UBRE = 1.2242  Scale est. = 1         n = 156
+
+Diagnostic Check:
+
+Method: UBRE   Optimizer: outer newton
+full convergence after 10 iterations.
+Gradient range [-1.085442e-08,8.201669e-07]
+(score 1.224191 & scale 1).
+Hessian positive definite, eigenvalue range [8.201987e-07,0.01106226].
+Model rank =  20 / 20 
+
+Basis dimension (k) checking results. Low p-value (k-index<1) may
+indicate that k is too low, especially if edf is close to k'.
+
+                          k'  edf k-index p-value  
+s(temperature)          9.00 1.42    1.00   0.470  
+s(quarter)              2.00 1.90    0.82   0.015 *
+te(temperature,quarter) 8.00 3.10    1.04   0.700  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+========================================
+Fitting model: M3 with link: cloglog 
+========================================
+
+Model Summary:
+
+Family: binomial 
+Link function: cloglog 
+
+Formula:
+cbind(cases, population - cases) ~ s(temperature) + s(time, k = 5) + 
+    te(temperature, time)
+
+Parametric coefficients:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept) -2.30143    0.01908  -120.6   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Approximate significance of smooth terms:
+                       edf Ref.df Chi.sq  p-value    
+s(temperature)       1.000  1.000  0.302   0.5826    
+s(time)              1.000  1.000  4.814   0.0282 *  
+te(temperature,time) 6.615  6.956 32.040 7.75e-05 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+R-sq.(adj) =  0.0516   Deviance explained = 10.1%
+UBRE = 1.5628  Scale est. = 1         n = 156
+
+Diagnostic Check:
+
+Method: UBRE   Optimizer: outer newton
+full convergence after 9 iterations.
+Gradient range [-7.928091e-07,-7.156236e-08]
+(score 1.562825 & scale 1).
+Hessian positive definite, eigenvalue range [7.156163e-08,0.003524954].
+Model rank =  36 / 36 
+
+Basis dimension (k) checking results. Low p-value (k-index<1) may
+indicate that k is too low, especially if edf is close to k'.
+
+                        k'   edf k-index p-value    
+s(temperature)        9.00  1.00    1.07    0.79    
+s(time)               4.00  1.00    0.69  <2e-16 ***
+te(temperature,time) 22.00  6.62    1.06    0.81    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+========================================
+Fitting model: M4 with link: cloglog 
+========================================
+
+Model Summary:
+
+Family: binomial 
+Link function: cloglog 
+
+Formula:
+cbind(cases, population - cases) ~ s(temperature) + s(time) + 
+    s(quarter, bs = "cc", k = 4) + te(temperature, time) + te(temperature, 
+    quarter, bs = c("tp", "cc"), k = c(5, 4))
+
+Parametric coefficients:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept) -2.31442    0.01936  -119.5   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Approximate significance of smooth terms:
+                           edf Ref.df Chi.sq p-value    
+s(temperature)          1.0003  1.000  3.123 0.07730 .  
+s(time)                 8.1074  8.776 22.301 0.00460 ** 
+s(quarter)              1.9965  2.000 52.930 < 2e-16 ***
+te(temperature,time)    6.4608  6.867 22.332 0.00253 ** 
+te(temperature,quarter) 0.6412  8.000  0.892 0.19346    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+R-sq.(adj) =  0.233   Deviance explained = 31.4%
+UBRE = 1.1063  Scale est. = 1         n = 156
+
+Diagnostic Check:
+
+Method: UBRE   Optimizer: outer newton
+full convergence after 10 iterations.
+Gradient range [-1.139507e-06,8.251118e-07]
+(score 1.106314 & scale 1).
+Hessian positive definite, eigenvalue range [7.604383e-08,0.004135041].
+Model rank =  51 / 51 
+
+Basis dimension (k) checking results. Low p-value (k-index<1) may
+indicate that k is too low, especially if edf is close to k'.
+
+                            k'    edf k-index p-value    
+s(temperature)           9.000  1.000    1.05    0.70    
+s(time)                  9.000  8.107    0.83  <2e-16 ***
+s(quarter)               2.000  1.996    0.83    0.01 ** 
+te(temperature,time)    22.000  6.461    1.17    1.00    
+te(temperature,quarter)  8.000  0.641    1.04    0.70    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+========================================
+Fitting model: M5 with link: cloglog 
+========================================
+
+Model Summary:
+
+Family: binomial 
+Link function: cloglog 
+
+Formula:
+cbind(cases, population - cases) ~ s(temperature) + s(quarter, 
+    bs = "cc", k = 4) + te(temperature, time)
+
+Parametric coefficients:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept) -2.31187    0.01927    -120   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Approximate significance of smooth terms:
+                       edf Ref.df Chi.sq  p-value    
+s(temperature)       1.000  1.000  0.015 0.901461    
+s(quarter)           1.943  2.000 65.294  < 2e-16 ***
+te(temperature,time) 7.588  7.949 29.032 0.000706 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+R-sq.(adj) =  0.205   Deviance explained = 25.4%
+UBRE =  1.171  Scale est. = 1         n = 156
+
+Diagnostic Check:
+
+Method: UBRE   Optimizer: outer newton
+full convergence after 9 iterations.
+Gradient range [-7.100112e-07,3.197998e-09]
+(score 1.170977 & scale 1).
+Hessian positive definite, eigenvalue range [4.03256e-07,0.003651114].
+Model rank =  35 / 35 
+
+Basis dimension (k) checking results. Low p-value (k-index<1) may
+indicate that k is too low, especially if edf is close to k'.
+
+                        k'   edf k-index p-value  
+s(temperature)        9.00  1.00    1.05    0.69  
+s(quarter)            2.00  1.94    0.81    0.02 *
+te(temperature,time) 23.00  7.59    1.07    0.83  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
