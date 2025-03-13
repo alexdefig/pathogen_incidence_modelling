@@ -26,7 +26,7 @@ Run the scripts in the following order:
 |------------------|------------------------------------------------------|
 | **`1_visualise_data.R`** | Maps pathogen incidence locations, incidence rates, and temperatures.                                                                                                   |
 | **`2_fit_gams.R`**       | Fits Generalized Additive Models (GAMs) to analyse the relationship between temperature and pathogen incidence. Compares model performance.                             |
-| **`3_fit_gmrf.R`**       | Fits a **Gaussian Markov Random Field (GMRF)** using **INLA**, modeling pathogen incidence and temperature associations.                                                |
+| **`3_fit_gmrf.R`**       | Fits a **Gaussian Markov Random Field (GMRF)** using **INLA**, modelling pathogen incidence.                                                |
 | **`R/data/`**            | Contains a `.csv` file of the pathogen incidence data.                                                                                                                  |
 | **`R/utility/`**         | Folder containing `.R` files:<br> - `mapping.R` (mapping functions)<br> - `helper.R` (helper functions)                                                                 |
 | **`R/packages/`**        | Folder containing scripts to install and load required packages:<br> - `packages.R` (list of required packages)<br> - `install_packages.R` (script to install packages) |
